@@ -36,7 +36,7 @@ $cat = $conn->query("SELECT * FROM `categories` ORDER BY `cname` ASC");
                     <i class="fas fa-seedling fa-3x text-success"></i>
                     <div class="px-2 text-right">
                         <span class="font-weight-bold">خاص ترین گیاهان</span>
-                        <p class="small text-muted">خرید نایاب ترین گیاهان</p>
+                        <p class="small">خرید نایاب ترین گیاهان</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ $cat = $conn->query("SELECT * FROM `categories` ORDER BY `cname` ASC");
                     <i class="fas fa-comment-dollar fa-3x text-success"></i>
                     <div class="px-2 text-right">
                         <span class="font-weight-bold"> بهترین قیمت </span>
-                        <p class="small text-muted"> بهترین قیمت در میان رقبا </p>
+                        <p class="small"> بهترین قیمت در میان رقبا </p>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ $cat = $conn->query("SELECT * FROM `categories` ORDER BY `cname` ASC");
                     <i class="fab fa-pagelines fa-3x text-success"></i>
                     <div class="px-2 text-right">
                         <span class="font-weight-bold"> گیاهان آپارتمانی </span>
-                        <p class="small text-muted"> بهترین گیاهان آپارتمانی </p>
+                        <p class="small"> بهترین گیاهان آپارتمانی </p>
                     </div>
                 </div>
             </div>
@@ -301,5 +301,4 @@ $cat = $conn->query("SELECT * FROM `categories` ORDER BY `cname` ASC");
 </main>
 
 <?php include('includes/footer.php'); ?>
-
 
