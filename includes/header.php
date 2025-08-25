@@ -54,7 +54,6 @@ $menu = $conn->query("SELECT * FROM `categories` WHERE `parentid`=0 ORDER BY `cn
         body {
             transition: background .2s ease, color .2s ease;
         }
-
     </style>
 
     <!-- icon -->
@@ -122,6 +121,12 @@ $menu = $conn->query("SELECT * FROM `categories` WHERE `parentid`=0 ORDER BY `cn
                 </div>
                 <div class="col-md-5 col-12 mt-2 d-flex justify-content-center">
 
+                    <!-- دکمه چت بات -->
+                    <a href="chatbot.php" class="btn btn-sm btn-info m-1">
+                        <i class="fa fa-robot"></i> چت‌بات
+                    </a>
+
+
                     <!-- دکمه تغییر حالت تاریک/روشن -->
                     <button id="darkModeToggle" type="button" class="btn btn-sm btn-secondary m-1" aria-pressed="false">
                         <i class="fa fa-moon"></i> حالت شب
@@ -181,7 +186,6 @@ $menu = $conn->query("SELECT * FROM `categories` WHERE `parentid`=0 ORDER BY `cn
                 setButtonLabel();
             }, false);
         })();
-
     </script>
 
 </body>
