@@ -80,7 +80,7 @@ $menu = $conn->query("SELECT * FROM `categories` WHERE `parentid`=0 ORDER BY `cn
                 </div>
                 <div class="col-md-5 col-12 mt-2 d-flex justify-content-center">
 
-                    <a href="chatbot.php" class="btn btn-sm btn-info m-1">
+                    <a href="../chatbot.php" class="btn btn-sm btn-info m-1">
                         <i class="fa fa-robot"></i> چت‌بات
                     </a>
                     <a href="basket.php" class="btn btn-sm btn-outline-success m-1"><i class="fa fa-cart-plus"></i> سبد خرید</a>
