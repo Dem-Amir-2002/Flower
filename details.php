@@ -39,6 +39,30 @@ if(isset($_GET['buy'])){
 $title = $rows['title'];
 include('includes/header.php');
 ?>
+
+<<style>
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .card {
+    background-color: #1e1e1e !important;
+    color: #f5f5f5 !important;
+}
+body.dark-mode .bg-light,
+body.dark-mode .bg-white {
+    background-color: #1c1c1c !important;
+    color: #f0f0f0 !important;
+}
+body.dark-mode .form-control,
+body.dark-mode .form-range,
+body.dark-mode textarea {
+    background-color: #2c2c2c !important;
+    color: #f0f0f0 !important;
+    border: 1px solid #555 !important;
+}
+</style>
+
 <main>
     <div class="container mt-5">
         <div class="alert alert-success"><a href="index.php">خانه</a> > <a href="index.php"><?=$rows['cname']?></a> > <?=$title?></div>
