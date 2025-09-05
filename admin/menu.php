@@ -5,7 +5,7 @@ $pro = $conn->query("SELECT COUNT(`pid`) as count FROM `products` WHERE `status`
 $newpro = $pro->fetch();
 ?>
 <img src="img/user.png" class="img-fluid" alt="" width="50" height="50">
-<h5 class="font-weight-bold pt-3"><?=$_SESSION['fullname']?></h5>
+<h5 class="font-weight-bold pt-3"><?= $_SESSION['fullname'] ?></h5>
 <hr>
 <!-- Menu -->
 <nav class="text-right">
@@ -48,8 +48,12 @@ $newpro = $pro->fetch();
         <i class="fas fa-box-open"></i>
     </ul>
     <div class="d-flex justify-content-between py-2">
-        <a class="d-block" href="order.php" >سفارشات</a>
+        <a class="d-block" href="order.php">سفارشات</a>
         <i class="fas fa-image "></i>
+    </div>
+    <div class="d-flex justify-content-between py-2">
+        <a class="d-block" href="reports.php">گزارش‌ها</a>
+        <i class="fas fa-chart-bar"></i>
     </div>
     <div class="d-flex justify-content-between py-2">
         <a class="d-block" href="logout.php">خروج</a>
