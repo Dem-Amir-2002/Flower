@@ -1,7 +1,7 @@
 <?php
 require_once "../includes/dbconfig.php";
 //check permission
-if(!isset($_SESSION["permission"]) && $_SESSION["permission"] != 1 || $_SESSION['permission'] != 2) {
+if (!isset($_SESSION["permission"]) && $_SESSION["permission"] != 1 || $_SESSION['permission'] != 2) {
     header("location: ../index.php");
     exit();
 }
@@ -13,7 +13,7 @@ $q = $conn->prepare("SELECT * FROM `comments`
 $q->execute();
 $total = $q->rowCount();
 //delete
-if(isset($_GET['del'])){
+if (isset($_GET['del'])) {
     $id = $_GET['id'];
     $del = $conn->prepare("DELETE FROM `comments` WHERE `comment_id`='$id'");
     $del->execute();
@@ -23,6 +23,7 @@ if(isset($_GET['del'])){
 ?>
 <!doctype html>
 <html lang="fa">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,46 +40,55 @@ if(isset($_GET['del'])){
     <!-- icon -->
     <script src="js/all.js"></script>
 </head>
+
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2 admin-menu text-center bg-light py-3">
-            <?php
-            include ("menu.php");
-            ?>
-        </div>
-        <div class="col-10 admin-content text-right py-3">
-            <h4>لیست نظرات</h4>
-            <hr>
-            <table class="table table-striped table-hover text-center">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>نام</th>
-                    <th>محصول</th>
-                    <th>پیام</th>
-                    <th>عملیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php if($total){ $count = 0; while($rows = $q->fetch()) { $count++;?>
-                <tr>
-                    <td><?=$count?></td>
-                    <td><?=$rows['name'].' '.$rows['family']?></td>
-                    <td><?=mb_substr($rows['title'],0,50)?>...</td>
-                    <td><?=$rows['comment']?></td>
-                    <td>
-                        <a href="../details.php?id=<?=$rows['pid']?>#comment" target="_blank" class="btn btn-xs btn-primary">پاسخ</a>
-                        <a href="comments.php?id=<?=$rows['comment_id']?>&del" onclick="return confirm('آیا از حذف اطمیان دارید؟ این عمل غیر قابل بازگشت می باشد.')" class="btn btn-xs btn-danger">حذف</a>
-                    </td>
-                </tr>
-                <?php } } else {?>
-                <tr><td colspan="5">محتوایی جهت نمایش موجود نمی باشد.</td></tr>
-                <?php } ?>
-                </tbody>
-            </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 admin-menu text-center bg-light py-3">
+                <?php
+                include("menu.php");
+                ?>
+            </div>
+            <div class="col-10 admin-content text-right py-3">
+                <h4>لیست نظرات</h4>
+                <hr>
+                <table class="table table-striped table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>نام</th>
+                            <th>محصول</th>
+                            <th>پیام</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($total) {
+                            $count = 0;
+                            while ($rows = $q->fetch()) {
+                                $count++; ?>
+                                <tr>
+                                    <td><?= $count ?></td>
+                                    <td><?= $rows['name'] . ' ' . $rows['family'] ?></td>
+                                    <td><?= mb_substr($rows['title'], 0, 50) ?>...</td>
+                                    <td><?= $rows['comment'] ?></td>
+                                    <td>
+                                        <a href="../details.php?id=<?= $rows['pid'] ?>&reply_id=<?= $rows['comment_id'] ?>#comment"
+                                            target="_blank" class="btn btn-xs btn-primary">پاسخ</a>
+                                        <a href="comments.php?id=<?= $rows['comment_id'] ?>&del" onclick="return confirm('آیا از حذف اطمیان دارید؟ این عمل غیر قابل بازگشت می باشد.')" class="btn btn-xs btn-danger">حذف</a>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else { ?>
+                            <tr>
+                                <td colspan="5">محتوایی جهت نمایش موجود نمی باشد.</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>
